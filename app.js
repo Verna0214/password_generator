@@ -4,9 +4,13 @@ const app = express()
 const exphbs = require('express-handlebars')
 const port = process.env.PORT || 3000
 
+// set template engine
+app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'main' }))
+app.set('view engine', 'hbs')
+
 // routers
 app.get('/', (req, res) => {
-  res.send('The project init.')
+  res.render('index')
 })
 
 // start server
