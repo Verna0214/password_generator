@@ -30,6 +30,11 @@ function generatePassword(option) {
     collection = collection.filter(letter => !option.excludeCharacters.includes(letter))
   }
 
+  // error alert
+  if (!collection.length) {
+    return 'There is no valid characters in your selection!'
+  }
+
   // start generating the password
   // random number as index
   // function, for loop
